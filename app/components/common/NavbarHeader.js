@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
 
 export default class NavbarHeader extends Component {
 	render(){
@@ -10,7 +11,7 @@ export default class NavbarHeader extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/about">MDT Application</a>
+            <Link className="navbar-brand" to="/">MDT Application</Link>
           </div>
 			)
 	}

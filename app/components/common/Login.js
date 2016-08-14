@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 
 export default class Login extends Component {
 	render() {
 		return (
-				<li><a href='#' onClick={()=>this.props.login('avz','123')}>Login</a></li>
+				<li><Link to='/about' onClick={()=>this.props.login('avz','123')}>Login</Link></li>
 			)
 	}
 }
+

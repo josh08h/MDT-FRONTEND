@@ -11,6 +11,10 @@ const navbars = {
 //cant put in NavbarListNavigation.propTypes here ?
 
 export default class NavbarListNavigation extends Component {
+  constructor(props){
+    super(props)
+
+  }
 
   buildNav (role){
   	let nav = [];
@@ -38,4 +42,3 @@ export default class NavbarListNavigation extends Component {
 		)
 	}
 }
-
