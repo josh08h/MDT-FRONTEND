@@ -1,14 +1,21 @@
 import authConstants from '../constants/auth'
 import { push } from 'react-router-redux'
 import * as api from '../api/auth'
+import axios from 'axios'
+import decoded from 'jwt-decode'
 
-export function loginUserSuccess(token){
+
+export function loginUserSuccess(data){
 	//set token in localStorage
+	localStorage.setItem('uid', data._id);
+	localStorage.setItem('role', data.role);
+	console.log(data)
 	return {
 		type: authConstants.LOGIN_SUCCESS,
 		payload: {
-			uid: token.uid,
-			role: token.role
+			uid: data._id,
+			email: data.email,
+			role: data.role
 		}
 	}
 }
@@ -31,7 +38,8 @@ export function loginUserRequest(){
 }
 
 export function logout(){
-	//remove localStorage token
+	localStorage.removeItem("uid");
+	localStorage.removeItem("role");
 	return {
 		type: authConstants.LOGOUT
 	}
@@ -48,14 +56,35 @@ export function loginUser(email, password) {
 	return function(dispatch){
 		try{
 		dispatch(loginUserRequest());
-		const token = api.getToken(email,password);
-		token ? dispatch(loginUserSuccess(token))
-					: dispatch(loginUserFailure({
+		// const token = api.getToken(email,password);
+		axios.post('http://localhost:8000/api/login', {
+		    username: email,
+		    password: password
+		  })
+		  .then(function (response) {
+		    if(response.data.token){
+		    	var data = decoded(response.data.token)
+		    	dispatch(loginUserSuccess(data));
+		    } else {
+		    	console.log(response.data.message)
+		    }
+
+		  })
+		  .catch(function (error) {
+		    dispatch(loginUserFailure({
 						response:{
 							status: 403,
 							statusText: 'Invalid username and password'
 						}
 					}))
+		  });
+		// token ? dispatch(loginUserSuccess(token))
+		// 			: dispatch(loginUserFailure({
+		// 				response:{
+		// 					status: 403,
+		// 					statusText: 'Invalid username and password'
+		// 				}
+		// 			}))
 				} catch (e){
 					dispatch(loginUserFailure(e))
 				}

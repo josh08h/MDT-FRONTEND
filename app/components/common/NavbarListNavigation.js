@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Login from './Login'
 import Logout from './Logout'
+import { Link } from 'react-router'
 
 const navbars = {
 	    mdtCoordinator: ['Referral', 'Triage', 'Live MDT', 'MDT List'],

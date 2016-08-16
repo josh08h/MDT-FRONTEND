@@ -1,11 +1,48 @@
+// import React, { Component, PropTypes } from 'react'
+// import { Link } from 'react-router'
+
+// export default class Login extends Component {
+// 	render() {
+// 		return (
+
+// 				<li><Link to='/about' onClick={()=>this.props.login('avz','123')}>Login</Link></li>
+// 			)
+// 	}
+// }
+
+
+
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
 
 export default class Login extends Component {
-	render() {
-		return (
-				<li><Link to='/about' onClick={()=>this.props.login('avz','123')}>Login</Link></li>
-			)
-	}
+
+  render() {
+    const { errorMessage } = this.props
+
+    return (
+      <div className='login-input'>
+        <input type='text' ref='username' className="form-control" placeholder='Username'/>
+        <input type='password' ref='password' className="form-control" placeholder='Password'/>
+        <button onClick={(event) => this.handleClick(event)} className="btn btn-primary">
+          Login
+        </button>
+
+        {errorMessage &&
+          <p>{errorMessage}</p>
+        }
+      </div>
+    )
+  }
+
+  handleClick(event) {
+    const username = this.refs.username
+    const password = this.refs.password
+    const creds = { username: username.value.trim(), password: password.value.trim() }
+    this.props.login(creds.username, creds.password)
+  }     
 }
 
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string
+}

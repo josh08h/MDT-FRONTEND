@@ -17,10 +17,13 @@
   "author": "Jean-Pierre Sierens",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.13.1",
+    "jwt-decode": "^2.1.0",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-hot-loader": "^3.0.0-beta.2",
     "react-redux": "^4.4.5",
+    "react-redux-form": "^0.14.4",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
     "redux": "^3.5.2",
