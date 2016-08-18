@@ -21,8 +21,9 @@ export default class NavbarListNavigation extends Component {
   	let nav = [];
 		if (role){
 		nav = navbars[role].map((label)=>{
+      label = label.replace(/\s/g, '');
       return (
-          <li key={label}><a href='#'>{label}</a></li>
+          <li key={label}><Link className='nav-links' to={label} >{label}</Link></li>
         )
     })
     	nav.push(<Logout key={'Logout'} logout={this.props.onLogout}/>)

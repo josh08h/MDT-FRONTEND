@@ -8,7 +8,6 @@ class App extends Component {
         return(
         <div>
             <Navbar />
-            <h1>Filter table</h1>
             { children }
         </div>
         );
