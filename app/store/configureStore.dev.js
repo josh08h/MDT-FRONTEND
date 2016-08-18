@@ -4,6 +4,7 @@ import DevTools from '../containers/DevTools';
 import thunk from 'redux-thunk'
 
 
+
 //own middleware
 const logger = store => next => action => {
   console.info('dispatching', action)
