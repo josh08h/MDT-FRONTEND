@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 export const fields = [ 'firstName', 'lastName', 'dob' ]
 
 const validate = values => {
@@ -25,29 +27,26 @@ class WizardFormFirstPage extends Component {
     } = this.props
     return (<form onSubmit={handleSubmit}>
         <div>
-          <label>First Name</label>
           <div>
-            <input type="text" placeholder="First Name" {...firstName}/>
+            <TextField type="text" placeholder="First Name" {...firstName}/>
           </div>
           {firstName.touched && firstName.error && <div>{firstName.error}</div>}
         </div>
         <div>
-          <label>dob</label>
           <div>
-            <input type="text" placeholder="dob" {...dob}/>
+            <TextField type="text" placeholder="dob" {...dob}/>
           </div>
         </div>
         <div>
-          <label>Last Name</label>
           <div>
-            <input type="text" placeholder="Last Name" {...lastName}/>
+            <TextField type="text" placeholder="Last Name" {...lastName}/>
           </div>
           {lastName.touched && lastName.error && <div>{lastName.error}</div>}
         </div>
         <div>
-          <button type="submit">
+          <RaisedButton type="submit">
             Next <i/>
-          </button>
+          </RaisedButton>
         </div>
       </form>
     )
