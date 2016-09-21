@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
-
+var logoStyles = {
+  width: '30%',
+  marginTop: '-15px'
+}
 export default class NavbarHeader extends Component {
 	render(){
 		return(
@@ -11,7 +14,7 @@ export default class NavbarHeader extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link className="navbar-brand" to="/">MDT Application</Link>
+            <Link className="navbar-brand" to="/"><img src='http://uploads.webflow.com/57a668ea3e4192b946e35418/57afa3a1e18710ca164835fe_peach-cancer-white.svg' style={logoStyles}/></Link>
           </div>
 			)
 	}

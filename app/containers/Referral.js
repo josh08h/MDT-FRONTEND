@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import WizardFormFirstPage from '../components/WizardFormFirstPage'
-import WizardFormSecondPage from '../components/WizardFormSecondPage'
-import WizardFormThirdPage from '../components/WizardFormThirdPage'
+import mdtPageOne from '../components/mdtPageOne'
+import mdtPageTwo from '../components/mdtPageTwo'
 
 class mdtReferral extends Component {
   constructor(props) {
@@ -27,9 +26,8 @@ class mdtReferral extends Component {
     const { onSubmit } = this.props
     const { page } = this.state
     return (<div>
-        {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage}/>}
-        {page === 2 && <WizardFormSecondPage previousPage={this.previousPage} onSubmit={this.nextPage}/>}
-        {page === 3 && <WizardFormThirdPage previousPage={this.previousPage} onSubmit={onSubmit}/>}
+        {page === 1 && <mdtPageOne onSubmit={this.nextPage}/>}
+        {page === 2 && <mdtPageTwo previousPage={this.previousPage} onSubmit={this.nextPage}/>}
       </div>
     )
   }

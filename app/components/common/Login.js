@@ -14,6 +14,13 @@
 
 import React, { Component, PropTypes } from 'react'
 
+var styles = {
+  loginButton: {
+    marginTop: '8px',
+    marginLeft: '8px'
+  }
+}
+
 export default class Login extends Component {
 
   render() {
@@ -21,9 +28,9 @@ export default class Login extends Component {
 
     return (
       <div className='login-input'>
-        <input type='text' ref='username' className="form-control" placeholder='Username'/>
-        <input type='password' ref='password' className="form-control" placeholder='Password'/>
-        <button onClick={(event) => this.handleClick(event)} className="btn btn-primary">
+        <input type='text' ref='username' className="form-control" placeholder='Username' style={styles.loginButton}/>
+        <input type='password' ref='password' className="form-control" placeholder='Password' style={styles.loginButton}/>
+        <button onClick={(event) => this.handleClick(event)} className="btn btn-primary" style={styles.loginButton}>
           Login
         </button>
 

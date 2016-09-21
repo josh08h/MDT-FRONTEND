@@ -17,6 +17,8 @@ injectTapEventPlugin();
 
 
 const store = configureStore();
+console.log('store', store)
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(

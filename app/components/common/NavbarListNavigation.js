@@ -11,11 +11,17 @@ const navbars = {
 };
 //cant put in NavbarListNavigation.propTypes here ?
 
+  var listStyles = {
+    color: 'white'
+  };
+
+
 export default class NavbarListNavigation extends Component {
   constructor(props){
     super(props)
 
   }
+
 
   buildNav (role){
   	let nav = [];
@@ -23,7 +29,7 @@ export default class NavbarListNavigation extends Component {
 		nav = navbars[role].map((label)=>{
       label = label.replace(/\s/g, '');
       return (
-          <li key={label}><Link className='nav-links' to={label} >{label}</Link></li>
+          <li key={label}><Link className='nav-links' to={label} style={listStyles}>{label}</Link></li>
         )
     })
     	nav.push(<Logout key={'Logout'} logout={this.props.onLogout}/>)

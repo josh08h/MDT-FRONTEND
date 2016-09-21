@@ -13,14 +13,10 @@ const logger = store => next => action => {
   return result
 }
 
-const middlewares = [ thunk, logger ]
+const middlewares = [ thunk]
 const mockStore = configureMockStore(middlewares)
 
 describe('async auth actions', ()=>{
-	// afterEach(()=>{
-	// 	nock.cleanAll()
-	// })
-
 	it('creates LOGIN_SUCCESS when successful login has occured', ()=>{
 	//array of expected actions to be dispatched.
 	const expectedActions = [
